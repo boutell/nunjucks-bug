@@ -22,6 +22,15 @@ Program crashes with:
 
 I get different errors if report.html or index.html does not exist, so it seems to have to do with extends.
 
+`nunjuckstest.js` is:
+
+    var nunjucks = require('nunjucks');
+
+    var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(__dirname + '/views'));
+    var indexTmpl = env.getTemplate('index.html');
+    var reportTmpl = env.getTemplate('report.html');
+    console.log(reportTmpl.render({}));
+
 `index.html` is just:
 
     {% block body %}
